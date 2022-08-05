@@ -14,12 +14,12 @@ var iconSVg =
             fill="#CCC" p-id="1105"></path></svg>';
 
 require(["gitbook", "jQuery"], function (gitbook, $) {
-  
+
   var requestCount
   gitbook.events.bind("start", function(e, config) {
-    var { host } = config.pageview;
+    var host = config.pageview.host;
     requestCount = function (targetUrl) {
-      return $.ajax(host, {
+      return $.ajax(host + '/v1/pagecount', {
         data: { url: encodeURIComponent(targetUrl) },
       });
     }
@@ -45,6 +45,7 @@ require(["gitbook", "jQuery"], function (gitbook, $) {
     }
 
     requestCount(location.href).then(function (data) {
+      console.log(123, data);
       renderWrapper.find(".page-view-counter").html(data);
     });
   });
