@@ -17,7 +17,6 @@ require(["gitbook", "jQuery"], function (gitbook, $) {
 
   var requestCount
   gitbook.events.bind("start", function(e, config) {
-    console.log(123, config)
     var host = config['site-count'].host;
     requestCount = function (targetUrl) {
       return $.ajax(host + '/v1/pagecount', {
@@ -46,8 +45,7 @@ require(["gitbook", "jQuery"], function (gitbook, $) {
     }
 
     requestCount(location.href).then(function (data) {
-      console.log(123, data);
-      renderWrapper.find(".page-view-counter").html(data);
+      renderWrapper.find(".page-view-counter").html(data.data);
     });
   });
 });
