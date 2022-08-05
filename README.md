@@ -13,7 +13,8 @@
   "pluginsConfig": {
     "ync-pageview": {
       "host": "https://www.answera.top"
-    },
+    }
+  }
 }
 ```
 
