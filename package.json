@@ -1,5 +1,5 @@
 {
-  "name": "gitbook-plugin-ync-pageview",
+  "name": "gitbook-plugin-site-count",
   "version": "0.0.1",
   "description": "gitbook plugin for pageview count",
   "keywords": [

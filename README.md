@@ -9,9 +9,9 @@
 
 ```
 {
-  "plugins": ["ync-pageview"],
+  "plugins": ["site-count"],
   "pluginsConfig": {
-    "ync-pageview": {
+    "site-count": {
       "host": "https://www.answera.top"
     }
   }
