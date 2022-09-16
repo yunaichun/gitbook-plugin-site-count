@@ -18,9 +18,9 @@ require(["gitbook", "jQuery"], function (gitbook, $) {
   var requestCount
   gitbook.events.bind("start", function(e, config) {
     var host = config['site-count'].host;
-    requestCount = function (targetUrl) {
+    requestCount = function () {
       return $.ajax(host + '/v1/pagecount', {
-        data: { url: encodeURIComponent(targetUrl) },
+        data: { url: location.href.replace('http:', 'https:') },
       });
     }
   })
@@ -44,7 +44,7 @@ require(["gitbook", "jQuery"], function (gitbook, $) {
       bookHeader.append(renderWrapper);
     }
 
-    requestCount(location.href).then(function (data) {
+    requestCount().then(function (data) {
       renderWrapper.find(".page-view-counter").html(data.data);
     });
   });
